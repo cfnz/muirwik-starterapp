@@ -46,8 +46,6 @@ class App : RComponent<RProps, RState>() {
                     }
                 }
             }
-
-            mButtonFab("menu")
         }
     }
 }
