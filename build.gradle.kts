@@ -4,7 +4,7 @@ import java.io.ByteArrayOutputStream
 val production: Boolean = (properties["production"] as String).toBoolean()
 
 group = "com.ccfraser.muirwik"
-version = "0.2.0"
+version = "0.2.1"
 description = "Starter Application for Muirwik (a Material UI React wrapper written in Kotlin)"
 
 @Suppress("ASSIGNED_BUT_NEVER_ACCESSED_VARIABLE")
@@ -14,7 +14,7 @@ buildscript {
 
     var muirwikComponentVersion: String by extra
     @Suppress("UNUSED_VALUE") // We don't use this value here, but it used down below.
-    muirwikComponentVersion = "0.2.0"
+    muirwikComponentVersion = "0.2.1"
 
     repositories {
         jcenter()
@@ -43,7 +43,7 @@ repositories {
     maven { setUrl("https://dl.bintray.com/kotlin/kotlin-eap") }
     maven { setUrl("https://dl.bintray.com/kotlin/kotlin-dev") }
     maven { setUrl("http://dl.bintray.com/kotlin/kotlin-js-wrappers") }
-    maven { setUrl("https://dl.bintray.com/cfraser/muirwik") }
+//    maven { setUrl("https://dl.bintray.com/cfraser/muirwik") }
 }
 
 val jarsToExtractJs = mutableListOf<String>()
@@ -54,7 +54,7 @@ dependencies {
     compile("org.jetbrains", "kotlin-react-dom", "16.6.0-pre.67-kotlin-$kotlinVersion")
     compile("org.jetbrains", "kotlin-styled", "1.0.0-pre.67-kotlin-$kotlinVersion")
 
-    println("Version is $muirwikComponentVersion")
+//    println("Version is $muirwikComponentVersion")
 
     val muirwik = "com.ccfraser.muirwik:muirwik-components:$muirwikComponentVersion"
     implementation(muirwik)
@@ -66,7 +66,8 @@ val compileKotlin2Js: Kotlin2JsCompile by tasks
 compileKotlin2Js.kotlinOptions {
     sourceMap = true
     metaInfo = true
-    freeCompilerArgs = listOf("-Xcoroutines=enable")
+// Coroutines now in kotlin 1.3
+//    freeCompilerArgs = listOf("-Xcoroutines=enable")
     outputFile = "${project.buildDir.path}/js/app.js"
     main = "call"
     moduleKind = "commonjs"
