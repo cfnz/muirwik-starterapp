@@ -9,14 +9,17 @@ module.exports = {
 
 const config = {
     mode: 'development',
-    entry: './build/js/app.js',
+    entry: [
+        require.resolve('react-dev-utils/webpackHotDevClient'),
+        './build/js-for-bundle/app.js'
+    ],
     output: {
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, 'build/dist'),
         filename: 'bundle.js',
     },
-    devtool: 'inline-source-map',
+    devtool: 'cheap-module-source-map',
     devServer: {
-        contentBase: './dist',
+        contentBase: './build/dist',
         // contentBase: path.join(__dirname, "dist"),
         compress: true,
         // port: 9000,
@@ -32,33 +35,18 @@ const config = {
     },
     resolve: {
         modules: [
-            "js",
-            "build/js",
-            "resources",
+            "build/js-for-bundle",
+            "build/resources",
             "node_modules",
-            "../../build/web/",
-            "../../build/classes/kotlin/js/",
         ],
         alias: {
-            // We alias things for two reasons, one is to allow sub-projects (e.g. components) to access the same
-            // copy of these modules (otherwise webpack pulls in two duplicate versions, and things don't work
-            // like they should). The other reason is that the @jetbrains/kotlin-xyz modules seems to refer to kotlin-xyz
-            // rather than @jetbrains/kotlin-xyz (for example) and don't get imported or referenced properly... not
-            // sure if it is the right way to go, but this fixes the problem.
-            'kotlin': path.resolve(path.join(__dirname, 'node_modules', 'kotlin')),
-            'kotlin-react': path.resolve(path.join(__dirname, 'node_modules', '@jetbrains/kotlin-react')),
-            'kotlin-react-dom': path.resolve(path.join(__dirname, 'node_modules', '@jetbrains/kotlin-react-dom')),
-            'kotlin-extensions': path.resolve(path.join(__dirname, 'node_modules', '@jetbrains/kotlin-extensions')),
-            'kotlin-css-js': path.resolve(path.join(__dirname, 'node_modules', '@jetbrains/kotlin-css-js')),
-            'kotlin-styled': path.resolve(path.join(__dirname, 'node_modules', '@jetbrains/kotlin-styled')),
-            'kotlinx-html-js': path.resolve(path.join(__dirname, 'node_modules', 'kotlinx-html-js')),
             '@material-ui': path.resolve(path.join(__dirname, 'node_modules', '@material-ui')),
         }
     },
     plugins: [
         // Creates the html page for us...
         // new HtmlWebpackPlugin(),
-        new webpack.HotModuleReplacementPlugin()
+        //new webpack.HotModuleReplacementPlugin()
     ],
     module: {
         rules: [
