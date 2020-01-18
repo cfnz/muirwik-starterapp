@@ -3,7 +3,7 @@ import org.jetbrains.kotlin.gradle.tasks.Kotlin2JsCompile
 import org.jetbrains.kotlin.gradle.tasks.KotlinJsDce
 
 group = "com.ccfraser.muirwik"
-version = "0.2.3"
+version = "0.2.4"
 description = "Starter Application for Muirwik (a Material UI React wrapper written in Kotlin)"
 
 val productionConfig: Boolean = (properties["production"] as String).toBoolean()
@@ -11,11 +11,11 @@ val productionConfig: Boolean = (properties["production"] as String).toBoolean()
 @Suppress("ASSIGNED_BUT_NEVER_ACCESSED_VARIABLE")
 buildscript {
     var kotlinVersion: String by extra
-    kotlinVersion = "1.3.41"
+    kotlinVersion = "1.3.60"
 
     var muirwikComponentVersion: String by extra
     @Suppress("UNUSED_VALUE") // We don't use this value here, but it used down below.
-    muirwikComponentVersion = "0.4.0"
+    muirwikComponentVersion = "0.4.1"
 
     repositories {
         jcenter()
@@ -52,8 +52,8 @@ repositories {
 }
 
 dependencies {
-    val kotlinJsVersion = "pre.80-kotlin-$kotlinVersion"
-    val kotlinReactVersion = "16.8.6-$kotlinJsVersion"
+    val kotlinJsVersion = "pre.89-kotlin-$kotlinVersion"
+    val kotlinReactVersion = "16.9.0-$kotlinJsVersion"
 
     implementation(kotlin("stdlib-js", kotlinVersion))
 

@@ -1,11 +1,9 @@
 package com.ccfraser.muirwik.starterapp
 
 import com.ccfraser.muirwik.components.*
-import com.ccfraser.muirwik.components.button.MButtonSize
 import com.ccfraser.muirwik.components.button.mButton
 import com.ccfraser.muirwik.components.button.mIconButton
 import com.ccfraser.muirwik.components.card.*
-import com.ccfraser.muirwik.components.styles.ThemeOptions
 import com.ccfraser.muirwik.components.transitions.mCollapse
 import kotlinx.css.*
 import kotlinx.css.properties.*
@@ -43,6 +41,9 @@ class App : RComponent<RProps, RState>() {
                     }
                 }
                 mCardActions {
+                    css {
+                        justifyContent = JustifyContent.spaceBetween
+                    }
                     mButton("Learn More", color = MColor.primary, hRefOptions = HRefOptions("https://github.com/cfnz/muirwik"))
 
                     mIconButton("expand_more", onClick = { setState { expanded = !expanded }}) {
@@ -51,8 +52,6 @@ class App : RComponent<RProps, RState>() {
                             else transform.rotate(0.deg)
 
                             transition("transform", 500.ms, Timing.easeInOut)
-
-                            marginLeft = LinearDimension.auto
                         }
                     }
                 }
