@@ -13,17 +13,15 @@ then the following should work (possibly may also need npm installed):
 
     git clone https://github.com/cfnz/muirwik-starterapp.git
     cd muirwik-starterapp
-    ./gradlew yarn
     ./gradlew build
-    ./gradlew webpackDevServerOpenBrowser
+    ./gradlew run
 
 In Windows it is probably (but have not tried it) more like:
 
     git clone https://github.com/cfnz/muirwik-starterapp.git
     cd muirwik-starterapp
-    gradlew.bat yarn
     gradlew.bat build
-    gradlew.bat webpackDevServerOpenBrowser
+    gradlew.bat run
     
 ## Background
 This started as a sub-project/module on [Muirwik](https://github.com/cfnz/muirwik), but

@@ -2,9 +2,6 @@
 # Compiled class file
 *.class
 
-# Log file
-*.log
-
 # BlueJ files
 *.ctxt
 
@@ -103,3 +100,5 @@ typings/
 .serverless
 
 # Our own ignore files
+/build/
+/.gradle/

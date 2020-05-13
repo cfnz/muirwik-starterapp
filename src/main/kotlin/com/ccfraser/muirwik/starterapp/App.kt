@@ -36,7 +36,7 @@ class App : RComponent<RProps, RState>() {
                     mCardContent {
                         mTypography("Muirwik Starter App", gutterBottom = true, variant = MTypographyVariant.h5, component = "h2")
                         mTypography("This is a starter app for Muirwik - A Material UI React wrapper written in Kotlin. " +
-                                "It doesn't really do anything except provide a starting point for development.", component = "p")
+                                "It doesn't really do much except provide a starting point for development.", component = "p")
                         mTypography("For a more featured app, see the test app.", component = "p")
                     }
                 }
