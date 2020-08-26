@@ -1,7 +1,6 @@
 package com.ccfraser.muirwik.starterapp
 
 import com.ccfraser.muirwik.components.*
-import com.ccfraser.muirwik.components.button.mButton
 import com.ccfraser.muirwik.components.button.mIconButton
 import com.ccfraser.muirwik.components.card.*
 import com.ccfraser.muirwik.components.transitions.mCollapse
@@ -10,7 +9,7 @@ import kotlinx.css.properties.*
 import react.*
 import styled.css
 import styled.styledDiv
-import kotlin.browser.window
+import kotlinx.browser.window
 
 class App : RComponent<RProps, RState>() {
     private var expanded = false
@@ -43,8 +42,9 @@ class App : RComponent<RProps, RState>() {
                 mCardActions {
                     css {
                         justifyContent = JustifyContent.spaceBetween
+                        paddingLeft = 16.px
                     }
-                    mButton("Learn More", color = MColor.primary, hRefOptions = HRefOptions("https://github.com/cfnz/muirwik"))
+                    mLink("Learn More", hRefOptions = HRefOptions("https://github.com/cfnz/muirwik"))
 
                     mIconButton("expand_more", onClick = { setState { expanded = !expanded }}) {
                         css {
