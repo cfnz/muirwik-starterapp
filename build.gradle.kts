@@ -14,7 +14,7 @@ repositories {
 
 dependencies {
     val kotlinVersion = "1.4.20"
-    val muirwikComponentVersion = "0.6.2"
+    val muirwikComponentVersion = "0.6.3"
     val kotlinJsVersion = "pre.129-kotlin-$kotlinVersion"
 
     implementation(kotlin("stdlib-js", kotlinVersion))
