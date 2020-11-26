@@ -1,53 +1,39 @@
 group = "com.ccfraser.muirwik"
-version = "0.6.0"
+version = "0.6.3"
 description = "Starter Application for Muirwik (a Material UI React wrapper written in Kotlin)"
 
 plugins {
-    kotlin("js") version "1.4.0"
+    kotlin("js") version "1.4.20"
 }
 
 repositories {
     jcenter()
-    maven { setUrl("https://dl.bintray.com/kotlin/kotlin-eap") }
-    maven { setUrl("https://dl.bintray.com/kotlin/kotlin-dev") }
-    maven { setUrl("http://dl.bintray.com/kotlin/kotlin-js-wrappers") }
-    maven { setUrl("https://dl.bintray.com/cfraser/muirwik") }
-    mavenLocal()
+    maven { setUrl("https://dl.bintray.com/kotlin/kotlin-js-wrappers") }
+//    mavenLocal()
 }
 
 dependencies {
-    val kotlinVersion = "1.4.0"
-    val muirwikComponentVersion = "0.6.0"
-    val kotlinJsVersion = "pre.112-kotlin-$kotlinVersion"
-    val kotlinReactVersion = "16.13.1-$kotlinJsVersion"
+    val kotlinVersion = "1.4.20"
+    val muirwikComponentVersion = "0.6.2"
+    val kotlinJsVersion = "pre.129-kotlin-$kotlinVersion"
 
     implementation(kotlin("stdlib-js", kotlinVersion))
-
-    implementation("org.jetbrains", "kotlin-react", kotlinReactVersion)
-    implementation("org.jetbrains", "kotlin-react-dom", kotlinReactVersion)
-    implementation("org.jetbrains", "kotlin-styled", "1.0.0-$kotlinJsVersion")
-    implementation("org.jetbrains", "kotlin-css-js", "1.0.0-$kotlinJsVersion")
+    implementation("org.jetbrains", "kotlin-styled", "5.2.0-$kotlinJsVersion")
     implementation(npm("react-hot-loader", "^4.12.20"))
-
     implementation("com.ccfraser.muirwik:muirwik-components:$muirwikComponentVersion")
 }
 
 kotlin {
-    js {
+    js(LEGACY) {
+        useCommonJs()
         browser {
-            useCommonJs()
-            webpackTask {
-                cssSupport.enabled = true
-            }
-
-            runTask {
+            commonWebpackConfig {
                 cssSupport.enabled = true
             }
 
             testTask {
                 useKarma {
                     useChromeHeadless()
-                    webpackConfig.cssSupport.enabled = true
                 }
             }
         }
