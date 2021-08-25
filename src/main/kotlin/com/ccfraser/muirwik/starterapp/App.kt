@@ -11,7 +11,7 @@ import styled.css
 import styled.styledDiv
 import kotlinx.browser.window
 
-class App : RComponent<RProps, RState>() {
+class App : RComponent<Props, State>() {
     private var expanded = false
 
     override fun RBuilder.render() {

@@ -12,7 +12,7 @@ import styled.StyleSheet
 import styled.css
 
 
-class TestBadges : RComponent<RProps, RState>() {
+class TestBadges : RComponent<Props, State>() {
     var anchorOriginHorizontal = MBadgeAnchorOriginHorizontal.left
     var anchorOriginVertical = MBadgeAnchorOriginVertical.top
 
