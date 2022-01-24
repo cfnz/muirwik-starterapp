@@ -1,7 +1,7 @@
 package com.ccfraser.muirwik.starterapp
 
-import com.ccfraser.muirwik.components.mThemeProvider
 import com.ccfraser.muirwik.components.styles.mStylesProvider
+import com.ccfraser.muirwik.components.themeProvider
 import react.dom.render
 import kotlinx.browser.document
 
@@ -12,9 +12,9 @@ private val module = js("module")
 
 fun main() {
     val hotWrapper = hot(module)
-    render(document.getElementById("root")) {
+    render(document.getElementById("root")!!) {
         mStylesProvider("jss-insertion-point") {
-            mThemeProvider {
+            themeProvider {
                 hotWrapper(app())
             }
         }

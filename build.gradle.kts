@@ -1,9 +1,9 @@
 group = "com.ccfraser.muirwik"
-version = "0.9.0"
+version = "0.10.1"
 description = "Starter Application for Muirwik (a Material UI React wrapper written in Kotlin)"
 
 plugins {
-    kotlin("js") version "1.5.30"
+    kotlin("js") version "1.6.10"
 }
 
 repositories {
@@ -12,12 +12,12 @@ repositories {
 }
 
 dependencies {
-    val kotlinVersion = "1.5.30"
-    val muirwikComponentVersion = "0.9.0"
-    val kotlinJsVersion = "pre.236-kotlin-$kotlinVersion"
+    val kotlinVersion = "1.6.10"
+    val muirwikComponentVersion = "0.10.1"
+    val kotlinJsVersion = "pre.290-kotlin-$kotlinVersion"
 
     implementation(kotlin("stdlib-js", kotlinVersion))
-    implementation("org.jetbrains.kotlin-wrappers", "kotlin-styled", "5.3.0-$kotlinJsVersion")
+    implementation("org.jetbrains.kotlin-wrappers", "kotlin-styled", "5.3.3-$kotlinJsVersion")
     implementation(npm("react-hot-loader", "^4.12.20"))
     implementation("com.ccfraser.muirwik:muirwik-components:$muirwikComponentVersion")
 }
